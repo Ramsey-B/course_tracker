@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="course_tracker.Views.NewTermPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Title" FontSize="Medium" />
+            <Entry Text="{Binding NewTerm.Title}" d:Text="Term title" FontSize="Small" Placeholder="Term Title" />
+            <Label Text="Start Date" FontSize="Medium" />
+            <StackLayout>
+                <DatePicker VerticalOptions="CenterAndExpand" Date="{Binding StartDate}">
+                    <DatePicker.Format>MM/dd/yyyy</DatePicker.Format>
+                </DatePicker>
+            </StackLayout>
+            <Label Text="End Date" FontSize="Medium" />
+            <StackLayout>
+                <DatePicker VerticalOptions="CenterAndExpand" Date="{Binding EndDate}" MinimumDate="{Binding StartDate}">
+                    <DatePicker.Format>MM/dd/yyyy</DatePicker.Format>
+                </DatePicker>
+            </StackLayout>
+            <Label TextColor="Red" Text="{Binding ErrorText}"></Label>
+            <StackLayout Orientation="Horizontal">
+                <Button BackgroundColor="Red" Text="Cancel" TextColor="White" Clicked="Cancel_Clicked"></Button>
+                <Button BackgroundColor="Blue" Text="Save" TextColor="White" Clicked="Save_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
